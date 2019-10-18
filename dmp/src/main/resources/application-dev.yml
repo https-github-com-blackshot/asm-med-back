@@ -1,0 +1,44 @@
+server:
+  port: 9297
+
+spring:
+  application:
+    name: med-dmp
+  data:
+    mongodb:
+      database: cloudoc
+      host: localhost
+      port: 27010
+      defaultbucket: cloudocfs
+
+logging:
+  file: /cloudoc/med-back/logs/dmp_app.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: ERROR
+    guru.springframework.controllers: ERROR
+    org.hibernate: ERROR
+
+eureka:
+  client:
+    region: default
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+    enabled: true
+  instance:
+    prefer-ip-address: true
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000
+
+fcm:
+  service-account-file: kz/beeset/med/dmp/utils/firebase/cloudoc-9d1b9-firebase-adminsdk-krmtd-1bad4db4dc.json
+
+

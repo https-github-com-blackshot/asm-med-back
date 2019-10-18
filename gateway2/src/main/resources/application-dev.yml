@@ -1,0 +1,75 @@
+server:
+  port: 8766
+
+security:
+  token:
+    secret:
+      key: Asjfwol2asf123142Ags1k23hnSA36as6f4qQ324FEsvb
+
+spring:
+  application:
+      name: med-gateway2
+  data:
+    mongodb:
+      database: cloudoc
+      host: localhost
+      port: 27010
+      defaultbucket: cloudocfs
+  mail:
+    host: smtp.yandex.com
+    port: 587
+    username: noreply@cloudoc.kz
+    password: WfwXFYfg9YQLS8d
+    from: noreply@cloudoc.kz
+    protocol: smtp
+    tls: true
+    default-encoding: UTF-8
+    mime.charset: utf8
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.yandex.com
+      writetimeout: 5000
+      timeout: 3000
+      connecttimeout: 5000
+logging:
+  file: /cloudoc/med-back/logs/gateway_app.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: ERROR
+    guru.springframework.controllers: ERROR
+    org.hibernate: ERROR
+
+eureka:
+  client:
+    region: default
+    registryFetchIntervalSeconds: 5
+
+zuul:
+  prefix: /med
+  routes:
+
+    med-users:
+      path: /med-users/**
+      serviceId: med-users
+      sensitive-headers: Set-Cookie,Authorization
+
+    med-jur-person:
+      path: /med-jur-person/**
+      serviceId: med-jur-person
+      sensitive-headers: Set-Cookie,Authorization
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1800000
+
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 180000

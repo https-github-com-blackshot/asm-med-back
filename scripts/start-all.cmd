@@ -1,0 +1,6 @@
+"-1. run eureka.cmd"
+"-2. run gateway2.cmd"
+"-3. run admin.cmd"
+"-4. run ki.cmd"
+"-5. run constructor.cmd"
+"-6. run rmm.cmd"

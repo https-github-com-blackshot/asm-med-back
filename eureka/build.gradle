@@ -1,0 +1,14 @@
+group 'kz.beeset.med'
+version '1.0.1'
+
+bootJar {
+    baseName = 'eureka'
+}
+
+dependencies {
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
+}
+
+springBoot {
+    mainClassName = 'kz.beeset.med.eureka.EurekaApplication'
+}

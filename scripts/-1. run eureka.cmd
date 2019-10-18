@@ -1,0 +1,1 @@
+java -jar -Xmx512m eureka/build/libs/eureka-1.0.1.jar

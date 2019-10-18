@@ -1,0 +1,16 @@
+rootProject.name = "med"
+
+include 'eureka'
+include 'admin'
+include 'ki'
+include 'constructor'
+include 'gateway2'
+include 'rmm'
+include 'etl'
+include 'dmp'
+include 'device'
+include 'messaging'
+include 'invitro'
+findProject(':invitro')?.name = 'integration'
+include 'notification'
+

@@ -1,0 +1,122 @@
+### Generated files ##
+.build
+build
+classes/*
+.build/*
+*.js.map
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better sendTo unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+#*.jar
+*.rar
+*.tar
+*.zip
+!common/src/main/java/kz/bsbnb/common/audit/doc/*
+!audit/src/main/java/kz/bsbnb/audit/doc/*
+*.war
+*.ear
+
+# Logs and databases #
+######################
+*.log
+#*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE generated files #
+#######################
+*.iml
+
+######## Android
+*.apk
+*.ap_
+*.dex
+
+######## Ant
+bin/
+gen/
+
+######## Maven
+target/
+
+######## Gradle directory
+.gradle
+
+######## IntelliJ
+*.ipr
+*.iws
+*.iml
+.idea/
+logs/
+
+######## Eclipse
+*.tmp
+*.bak
+*.swp
+*~.nib
+*.pydevproject
+.project
+.metadata
+.classpath
+.settings/
+.loadpath
+local.properties
+gradle.properties
+proguard/
+bin/
+tmp/
+
+######## Locally stored "Eclipse launch configurations"
+*.launch
+
+######## External tool builders
+.externalToolBuilders/
+
+######## CDT-specific
+.cproject
+
+######## PDT-specific
+.buildpath
+
+######## OS junk files
+[Tt]humbs.db
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+######## Other files and folders
+version.properties
+gradle.properties
+*.log
+backup/
+.vscode/
+med-back.code-workspace
+*/out

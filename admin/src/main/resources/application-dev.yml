@@ -1,0 +1,56 @@
+server:
+  port: 9210
+
+security:
+  token:
+    secret:
+      key: Asjfwol2asf123142Ags1k23hnSA36as6f4qQ324FEsvb
+
+spring:
+  mail:
+        host: smtp.gmail.com
+        port: 587
+        username: cloudoc.asia@gmail.com
+        password: 12345Mnbvcxz
+        from: Cloudoc support service
+        protocol: smtp
+        tls: true
+        default-encoding: UTF-8
+        mime.charset: utf8
+        properties.mail.smtp:
+          auth: true
+          starttls.enable: true
+          ssl.trust: smtp.gmail.com
+          writetimeout: 5000
+          timeout: 3000
+          connecttimeout: 5000
+
+  application:
+    name: med-admin
+  data:
+    mongodb:
+      database: cloudoc
+      host: localhost
+      port: 27010
+      defaultbucket: cloudocfs
+logging:
+  file: /cloudoc/med-back/logs/admin_app.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: ERROR
+    guru.springframework.controllers: ERROR
+    org.hibernate: ERROR
+
+eureka:
+  client:
+    region: default
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+    enabled: true
+  instance:
+    prefer-ip-address: true
+
+

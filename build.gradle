@@ -1,0 +1,64 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.3.RELEASE'
+		springCloudVersion = 'Finchley.M9'
+		springSessionVersion = '2.0.3.RELEASE'
+		//springKafkaVersion = '2.1.4.RELEASE'
+		//modelMapperVersion = '0.7.5'
+		//gsonVersion = '2.8.2'
+		//ojdbcVersion = 'ojdbc6-11.2.0.3'
+	}
+
+	repositories {
+		//mavenLocal()
+		mavenCentral()
+		maven { url "https://repo.spring.io/milestone" }
+	}
+
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+allprojects {
+	group = "kz.beeset.med"
+	version = '1.0.1'
+
+	apply plugin: 'java'
+	apply plugin: 'idea'
+
+	compileJava.options.encoding = 'UTF-8'
+
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+}
+
+subprojects {
+	repositories {
+		flatDir {
+			// некоторых библиотек нет в публичных репозиториях, поэтому держим локально
+			dirs "${rootProject.projectDir}/libs"
+		}
+		mavenLocal()
+		mavenCentral()
+		maven { url "https://repo.spring.io/milestone" }
+	}
+
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+
+	apply plugin: 'org.springframework.boot'
+	apply plugin: 'io.spring.dependency-management'
+
+	dependencyManagement {
+		imports {
+			mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+			mavenBom("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
+		}
+	}
+
+	dependencies {
+		runtime("org.springframework.boot:spring-boot-properties-migrator")
+		testCompile("org.springframework.boot:spring-boot-starter-test")
+	}
+}

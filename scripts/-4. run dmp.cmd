@@ -1,0 +1,1 @@
+java -jar -Dspring.profiles.active=prod -Xmx512m  dmp/build/libs/dmp-1.0.1.jar

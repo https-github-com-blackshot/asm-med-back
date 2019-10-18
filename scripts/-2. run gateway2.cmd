@@ -1,0 +1,1 @@
+java -jar -Dspring.profiles.active=prod -Xmx512m gateway2/build/libs/gateway2-1.0.1.jar

@@ -1,0 +1,1 @@
+java -jar -Dspring.profiles.active=prod -Xmx512m admin/build/libs/admin-1.0.1.jar
